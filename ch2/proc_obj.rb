@@ -13,9 +13,7 @@ require 'rspec'
 
 RSpec.describe 'Proc' do
   it 'with args' do
-    greeter = proc do |name|
-      puts "Hello, #{name}!"
-    end
+    greeter = proc { |name| puts "Hello, #{name}!" }
 
     expect(capture_stdout { greeter.call('Proc') }).to eq("Hello, Proc!\n")
   end
