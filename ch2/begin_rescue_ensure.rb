@@ -2,7 +2,7 @@ require 'rspec'
 
 RSpec.describe 'Begin / Rescue / Ensure' do
   it 'example' do
-    exeption = proc do
+    exeption =
       begin
         file = File.open('ghostfile')
       rescue => e
@@ -10,8 +10,7 @@ RSpec.describe 'Begin / Rescue / Ensure' do
       ensure
         file.close if file
       end
-    end
 
-    expect(exeption.call).to eq('Errno::ENOENT')
+    expect(exeption).to eq('Errno::ENOENT')
   end
 end
