@@ -17,4 +17,16 @@ RSpec.describe 'Proc' do
 
     expect(capture_stdout { greeter.call('Proc') }).to eq("Hello, Proc!\n")
   end
+
+  it 'with lambda' do
+    greeter = lambda { |name| puts "Hello, #{name}!" }
+
+    expect(capture_stdout { greeter.call('Proc') }).to eq("Hello, Proc!\n")
+  end
+
+  it 'with ->(params) # Recommended' do
+    greeter = ->(name) { puts "Hello, #{name}!" }
+
+    expect(capture_stdout { greeter.call('Proc') }).to eq("Hello, Proc!\n")
+  end
 end
